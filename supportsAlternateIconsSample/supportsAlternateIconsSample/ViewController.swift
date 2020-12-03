@@ -33,8 +33,10 @@ class ViewController: UIViewController {
     /// - Parameter iconName: image Name
     func changeICon(iconName:String) {
         
-        // 1. 필수 체크 (멀티 icon 지원여부 체크)
-        guard UIApplication.shared.supportsAlternateIcons else {
+
+        // 1. 필수 체크 (멀티 icon 지원여부 체크), 현재 변경하려는 아이콘과 같은지 체크
+        guard UIApplication.shared.supportsAlternateIcons,
+              iconName != UIApplication.shared.alternateIconName else {
             return
         }
         
